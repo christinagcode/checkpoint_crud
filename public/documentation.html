@@ -1,0 +1,38 @@
+<html>
+    <body>
+        <h1> World best todo lsit backends </h1>
+        <p>Here are the routes we support</p>
+
+        <ul>
+            <li>
+                <b> GET /todo</b>
+                <p> This route will return a summary of all the todo items that we have stored</p>
+            </li>
+            <li>
+                <b> GET /todo/:id</b>
+                <p> This route will return the details of a single todo item that matches the id in the path parameter.
+                    If no item is found, it will return null
+                </p>
+            </li>
+            <li>
+                <b> POST /todo</b>
+                <p> This route will add a todo item to the list. Include the description</p>
+                    <code>
+                        {
+                            "task":"Feed the squirrel",
+                            "description": "Make sure to use the organic, free range nuts we have."
+                        }
+                    </code>
+            </li>
+            <li>
+                <b> PUT /todo/:id</b>
+                <p> This route will update single todo.</p>
+            </li>
+            <li>
+                <b> delete /todo/:id</b>
+                <p> This route will delete todo</p>
+            </li>
+        </ul>
+
+    </body>
+</html>

@@ -1,0 +1,6 @@
+node_modules
+.env
+
+// reason we're ignoring is because we are placing all of our enviornemnt
+// in this file. When I commmit my code or send my code it only sends my 
+// code and not the enviornment information

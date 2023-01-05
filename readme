@@ -1,0 +1,61 @@
+Our backend supports the following functionality
+
+1. Add a todo item
+2. Update/Edit a todo item
+3. List a summary of all todo items
+4. Get details of a single todo item
+5. Delete a todo item
+
+In JavaScript, our todo object looks like this:
+
+{
+    "id":3,
+    "task": "walk the dog",
+    "description": "long walks for the dog",
+    "done": false
+}
+
+create table todo (
+    id integer primary key auto_increment,
+    task varchar(100) not null,
+    description varchar(500),
+    done boolean
+)
+
+// this is the sql to insert new item
+
+INSERT INTO todo(task, description) values ("walk the dog", "long walks for the dog");
+
+// this is the sql to update item #4
+UPDATE todos set description = "Walk the dog 2 times a day after sunrise"
+WHERE id = 4 
+
+// this is the sql to delete item #4
+DELETE FROM todos where id = 4 
+
+// list he summary of al lthe items
+SELECT id, task, done FROM todos;
+
+// get the details of the item #4
+SELECT id, task, done, description FROM todos where id = 4;
+
+................
+
+Check point
+You will build a backend to manage some "Entity". Such as: recipes, books, todoList, movies...
+
+10 pts for having a connection to the databse
+10 pts if you ahve a seperate controller file
+10 pt if you have seperate route file
+10 if you have sufficient comments to make be believe you understand what are you doing 
+10 for having static file that documents api and routes
+
+bleow to be able to do through postaman 
+50 pts for functionality
+10 pts : if you back end allows me to add an "Entity"
+10pts if your back end allows meto list summaries of all your "enttities"
+10 pts : if your backend allows meto get details about a signle "Entity"
+10 pts : if your backend allows me to delete an existing "Entity"
+
+if you watched the lsat video you'll get 80 poitns day 10 
+because we didn' have statif file that documents your api and 
