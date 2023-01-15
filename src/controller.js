@@ -4,7 +4,7 @@ let addItem = function(req,res){
 
     let t = req.body.task;
     let d = req.body.description;
-    let sql = "INSERT INTO todos (task, description) values (?, ?)";
+    let sql = "INSERT INTO todo (task, description) values (?, ?)";
     let params = [t, d];
 
     db.query(sql, params, function(err, results){
@@ -23,7 +23,7 @@ let editItem = function(req,res){
     let flag = req.body.done;
     let description = req.body.description;
 
-    let sql = "UPDATE todos set task = ?, done = ?, description = ?"
+    let sql = "UPDATE todo set task = ?, done = ?, description = ?"
     let params = [task, flag, description];
 
     db.query(sql, params, function(err, results){
@@ -40,9 +40,9 @@ let listItem = function(req,res){
     // code to list summary of all items goes here...
 
     //SQL: SELECT id, done, task FROM todos;
-    db.query("SELECT id, done, task FROM todos", function(err, results){
+    db.query("SELECT id, done, task FROM todo", function(err, results){
         if(err){
-            console.log("Failed to fetch todos from database", err);
+            console.log("Failed to fetch todo from database", err);
             res.sendStatus(500);
         } else { 
 
@@ -64,7 +64,7 @@ let getItem = function(req,res){
      let id = req.params.id;
 
      // to save your self from sql injection you separate your sql statement in two parts.
-     let sql = "SELECT id, task, done, description from todos where id = ? "
+     let sql = "SELECT id, task, done, description from todo where id = ? "
      let params = [id];
      db.query(sql, params, function(err, results){
         if(err){
@@ -90,7 +90,7 @@ let deleteItem = function(req,res){
 
     let id = req.params.id;
 
-    let sql = "DELETE from todos where id = ?"
+    let sql = "DELETE from todo where id = ?"
     let params = [id];
 
     db.query(sql, params, function(err, results){
